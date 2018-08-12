@@ -17,7 +17,9 @@
         android:text="@string/txt_btn_enter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editText2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/RaisedButton"
+        />
 
     <EditText
         android:id="@+id/editText2"
@@ -51,7 +53,9 @@
         android:text="@string/txt_btn_sort"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:theme="@style/RaisedButton"
+        />
 
     <Button
         android:id="@+id/button3"
@@ -61,7 +65,9 @@
         android:text="@string/txt_btn_search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        android:theme="@style/RaisedButton"
+        />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
