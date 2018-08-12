@@ -2,7 +2,6 @@ package com.maycc.numeros
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import com.maycc.numeros.utilities.bubbleSort
 import com.maycc.numeros.utilities.showToast
@@ -54,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         btnSort.setOnClickListener {
             if (arrayListNumbers.isNotEmpty()) {
                 updateArrayNumbers()
+                showToast(this, "Números ordenados!!!")
             }else {
                 showToast(this, "Nada que ordenar!!!")
             }
