@@ -53,16 +53,16 @@ class MainActivity : AppCompatActivity() {
     private fun addListenerBtnSort() {
         btnSort.setOnClickListener {
             if (arrayListNumbers.isNotEmpty()) {
-
-                var ordenados = bubbleSort(arrayListNumbers)
-
-                for (i in ordenados) {
-                    Log.d("ARRAY SORT", i.toString())
-                }
-
+                updateArrayNumbers()
             }else {
                 showToast(this, "Nada que ordenar!!!")
             }
         }
+    }
+
+    private fun updateArrayNumbers() {
+        val orderedNumbers = bubbleSort(arrayListNumbers)
+        arrayListNumbers = orderedNumbers
+        adapter?.notifyDataSetChanged()
     }
 }
