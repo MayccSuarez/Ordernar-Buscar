@@ -4,13 +4,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import com.maycc.numeros.utilities.bubbleSort
 import com.maycc.numeros.utilities.showToast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var arrayListNumbers = arrayListOf<String>()
-    private var adapter :ArrayAdapter<String>? = null
+    private var arrayListNumbers = arrayListOf<Int>()
+    private var adapter :ArrayAdapter<Int>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             val number = edtNumber.text.toString()
 
             if (isEnterNumber(number)) {
-                addNumberToArrayListNumbers(number)
+                addNumberToArrayListNumbers(number.toInt())
             } else {
                 showToast(this, "Por favor ingresa un número")
             }
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun isEnterNumber (number :String) = number.isNotEmpty()
 
-    private fun addNumberToArrayListNumbers(number: String) {
+    private fun addNumberToArrayListNumbers(number: Int) {
         arrayListNumbers.add(number)
         adapter?.notifyDataSetChanged()
     }
@@ -52,6 +53,13 @@ class MainActivity : AppCompatActivity() {
     private fun addListenerBtnSort() {
         btnSort.setOnClickListener {
             if (arrayListNumbers.isNotEmpty()) {
+
+                var ordenados = bubbleSort(arrayListNumbers)
+
+                for (i in ordenados) {
+                    Log.d("ARRAY SORT", i.toString())
+                }
+
             }else {
                 showToast(this, "Nada que ordenar!!!")
             }
