@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import com.maycc.numeros.utilities.showToast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         initAdapter()
         initListViewNumbers()
         addListenerBtnEnter()
+        addListenerBtnSort()
     }
 
     private fun initAdapter() {
@@ -34,6 +36,8 @@ class MainActivity : AppCompatActivity() {
 
             if (isEnterNumber(number)) {
                 addNumberToArrayListNumbers(number)
+            } else {
+                showToast(this, "Por favor ingresa un número")
             }
 
         }
@@ -43,5 +47,14 @@ class MainActivity : AppCompatActivity() {
     private fun addNumberToArrayListNumbers(number: String) {
         arrayListNumbers.add(number)
         adapter?.notifyDataSetChanged()
+    }
+
+    private fun addListenerBtnSort() {
+        btnSort.setOnClickListener {
+            if (arrayListNumbers.isNotEmpty()) {
+            }else {
+                showToast(this, "Nada que ordenar!!!")
+            }
+        }
     }
 }
