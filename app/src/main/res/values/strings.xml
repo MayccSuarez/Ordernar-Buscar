@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Numeros</string>
+    <string name="txt_btn_enter">INGRESAR</string>
+    <string name="txt_hint_number">Ingresa un número</string>
+    <string name="txt_btn_sort">ORDENAR</string>
+    <string name="txt_btn_search">BUSCAR</string>
 </resources>
