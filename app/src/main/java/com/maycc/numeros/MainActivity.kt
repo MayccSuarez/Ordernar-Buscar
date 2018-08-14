@@ -2,7 +2,10 @@ package com.maycc.numeros
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
+import com.maycc.numeros.utilities.alertDialogAskNumber
+import com.maycc.numeros.utilities.binarySearch
 import com.maycc.numeros.utilities.bubbleSort
 import com.maycc.numeros.utilities.showToast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         initListViewNumbers()
         addListenerBtnEnter()
         addListenerBtnSort()
+        addListenerBtnSearch()
     }
 
     private fun initAdapter() {
@@ -47,6 +51,7 @@ class MainActivity : AppCompatActivity() {
     private fun addNumberToArrayListNumbers(number: Int) {
         arrayListNumbers.add(number)
         adapter?.notifyDataSetChanged()
+        edtNumber.setText("")
     }
 
     private fun addListenerBtnSort() {
@@ -64,5 +69,16 @@ class MainActivity : AppCompatActivity() {
         val orderedNumbers = bubbleSort(arrayListNumbers)
         arrayListNumbers = orderedNumbers
         adapter?.notifyDataSetChanged()
+    }
+
+    private fun addListenerBtnSearch() {
+        btnSearch.setOnClickListener {
+            if (arrayListNumbers.isNotEmpty()) {
+                updateArrayNumbers()
+                alertDialogAskNumber(this, arrayListNumbers)
+            }else {
+                showToast(this, "Nada que Buscar!!!")
+            }
+        }
     }
 }
