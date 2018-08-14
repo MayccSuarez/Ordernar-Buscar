@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
     private fun addNumberToArrayListNumbers(number: Int) {
         arrayListNumbers.add(number)
         adapter?.notifyDataSetChanged()
+        edtNumber.setText("")
     }
 
     private fun addListenerBtnSort() {
