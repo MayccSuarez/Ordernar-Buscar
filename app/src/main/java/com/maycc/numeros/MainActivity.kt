@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
     private fun addListenerBtnSearch() {
         btnSearch.setOnClickListener {
             if (arrayListNumbers.isNotEmpty()) {
-
+                updateArrayNumbers()
             }else {
                 showToast(this, "Nada que Buscar!!!")
             }
