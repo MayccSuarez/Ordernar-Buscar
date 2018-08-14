@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import com.maycc.numeros.utilities.alertDialogAskNumber
 import com.maycc.numeros.utilities.binarySearch
 import com.maycc.numeros.utilities.bubbleSort
 import com.maycc.numeros.utilities.showToast
@@ -73,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         btnSearch.setOnClickListener {
             if (arrayListNumbers.isNotEmpty()) {
                 updateArrayNumbers()
+                alertDialogAskNumber(this, arrayListNumbers)
             }else {
                 showToast(this, "Nada que Buscar!!!")
             }
