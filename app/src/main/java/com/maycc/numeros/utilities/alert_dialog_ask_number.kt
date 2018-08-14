@@ -11,21 +11,22 @@ fun alertDialogAskNumber(activity :AppCompatActivity, numbers :ArrayList<Int>)  
     alert.setTitle("Binary Search")
     alert.setMessage("Ingresa el número a buscar: ")
 
-    var number :Int?
-
     val editText = EditText(activity)
     editText.inputType = InputType.TYPE_CLASS_NUMBER
     alert.setView(editText)
 
     alert.setPositiveButton("BUSCAR", object: DialogInterface.OnClickListener {
         override fun onClick(dialog: DialogInterface?, which: Int) {
-            number = editText.text.toString().toInt()
-            val position = binarySearch(numbers, number!!)
+            val number = editText.text.toString()
 
-            if (position != -1)
-                showToast(activity, "Número encontrado en la posición: $position")
-            else
-                showToast(activity, "Número no encontrado!!!")
+            if (number.isNotEmpty()){
+                val position = binarySearch(numbers, number.toInt())
+
+                if (position != -1)
+                    showToast(activity, "Número encontrado en la posición: $position")
+                else
+                    showToast(activity, "Número no encontrado!!!")
+            }
         }
     })
 
